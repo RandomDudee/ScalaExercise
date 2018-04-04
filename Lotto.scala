@@ -45,24 +45,24 @@ object Lotto extends App {
 
 
 
-//    val random = util.Random.shuffle(1 to 90)
-//
-//    val fiveNumbers = random.splitAt(5) // should have just took 5 instead of split
-//
-//    val singleTicket = fiveNumbers._1 // takes first list of 5 instead of both lists 5 and 85
-//
-//
-//      //   val list = List(singleTicket)
-//
-//
-//      //do { list } while (list < 5 )
-//
-//    val multipleTickets = for (i <- 1 to 5) yield util.Random.shuffle(1 to 90).splitAt(5)._1.sortWith(_ < _)
-//      // Got help of jack as I could not get loops working. Didn't know Yield was a thing.... HAd single ticket and drew it 5 times  instead of 5 random tickets changed to work.
-//
-//    val draw = singleTicket.sortWith(_ < _) // (_ < _) sorts by ascending order
-//
-//    val winLose = multipleTickets.contains(draw) // kept failing saying false. swapped round args.
+    val random = util.Random.shuffle(1 to 90)
+
+    val fiveNumbers = random.splitAt(5) // should have just took 5 instead of split
+
+    val singleTicket = fiveNumbers._1 // takes first list of 5 instead of both lists 5 and 85
+
+
+      //   val list = List(singleTicket)
+
+
+      //do { list } while (list < 5 )
+
+    val multipleTickets = for (i <- 1 to 5) yield util.Random.shuffle(1 to 90).splitAt(5)._1.sortWith(_ < _)
+      // Got help of jack as I could not get loops working. Didn't know Yield was a thing.... HAd single ticket and drew it 5 times  instead of 5 random tickets changed to work.
+
+    val draw = singleTicket.sortWith(_ < _) // (_ < _) sorts by ascending order
+
+    val winLose = multipleTickets.contains(draw) // kept failing saying false. swapped round args.
 
     // println(draw)
     // println(multipleTickets)
