@@ -48,7 +48,7 @@ object Lotto extends App {
       }
   })
 /*  TODO looks like thread 3 is only taking its own 5 tickets and checking against them and not taking the 1 million tickets from threads 1 & 2
-    also looks like thread3 keeps generating a new draw only need it to create one draw and match against threads 2 & 3
+    TODO also looks like thread3 keeps generating a new draw only need it to create one draw and match against threads 2 & 3
  */
 
 
@@ -85,6 +85,7 @@ object Lotto extends App {
 
 //
 //
+thread1.
 thread1.start()
 thread2.start()
 thread3.start()
