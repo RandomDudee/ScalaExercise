@@ -79,18 +79,21 @@ object Lotto extends App {
 
     def draw = util.Random.shuffle(1 to 90).take(5).sortWith(_ < _) // (_ < _) sorts by ascending order
 
-    def winLose = multipleTickets.contains(draw) // kept failing saying false. swapped round args.
+//    def winLose = multipleTickets.contains(draw) // kept failing saying false. swapped round args.
 
-    def four = util.Random.shuffle(1 to 90).take(4).sortWith(_<_)
+    val five :Seq[Int] = util.Random.shuffle(1 to 90).take(5).sortWith(_<_)
+    val matchFive = five.map{x => multipleTickets.map(_.contains(x))}
 
-    def matchFour = multipleTickets.contains(four)
+    val four: Seq[Int] = util.Random.shuffle(1 to 90).take(4).sortWith(_<_)
+    val matchFour =  four.map{x => multipleTickets.map(_.contains(x))}
 
     val three: Seq[Int] = util.Random.shuffle(1 to 90).take(3).sortWith(_<_)
-
     val matchThree =  three.map{x => multipleTickets.map(_.contains(x))}
 
-    val one = util.Random.shuffle(1 to 90).take(1).sortWith(_<_).head
+    val two: Seq[Int] = util.Random.shuffle(1 to 90).take(2).sortWith(_<_)
+    val matchTwo =  two.map{x => multipleTickets.map(_.contains(x))}
 
+    val one = util.Random.shuffle(1 to 90).take(1).sortWith(_<_).head
     val matchOne: immutable.Seq[Boolean] = multipleTickets.map(_.contains(one))
 
 //    val winLose2 = multipleTickets2.contains(draw)
@@ -99,11 +102,15 @@ object Lotto extends App {
 //
 //    val winLose4 = multipleTickets4.contains(draw)
 
-    if (winLose == true)println("Found") else println("None Found")
+//    if (winLose == true)println("Found") else println("None Found")
+//
+    if (matchFive.count(_ == true) >= 1)println("Found Five") else println("None Found Five")
 
-    if (matchFour == true)println("Found Four") else println("None Found Four")
+    if (matchFour.count(_ == true) >= 1)println("Found Four") else println("None Found Four")
 
     if (matchThree.count(_ == true) >= 1)println("Found Three") else println("None Found Three")
+
+    if (matchTwo.count(_ == true) >= 1)println("Found Two") else println("None Found Two")
 
     if (matchOne.count(_ == true) >= 1)println("Found One") else println("None Found One")
 
