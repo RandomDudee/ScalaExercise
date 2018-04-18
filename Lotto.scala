@@ -68,7 +68,7 @@ object Lotto extends App {
 
       //do { list } while (list < 5 )
 
-    def multipleTickets: immutable.Seq[Seq[Int]] = for (i <- 1 to 1000000) yield util.Random.shuffle(1 to 90).take(5).sortWith(_ < _)
+    def multipleTickets: immutable.Seq[Seq[Int]] = for (i <- 1 to 500000) yield util.Random.shuffle(1 to 90).take(5).sortWith(_ < _)
       // Got help of jack as I could not get loops working. Didn't know Yield was a thing.... HAd single ticket and drew it 5 times  instead of 5 random tickets changed to work.
 
 //    def multipleTickets2 = for (i <- 250001 to 500000) yield util.Random.shuffle(1 to 90).take(5).sortWith(_ < _)
@@ -104,13 +104,13 @@ object Lotto extends App {
 
 //    if (winLose == true)println("Found") else println("None Found")
 //
-    if (matchFive.count(_ == true) >= 1)println("Found Five") else println("None Found Five")
+    if (matchFive.count(_ == true) >= 5)println("Found Five") else println("None Found Five")
 
-    if (matchFour.count(_ == true) >= 1)println("Found Four") else println("None Found Four")
+    if (matchFour.count(_ == true) >= 4)println("Found Four") else println("None Found Four")
 
-    if (matchThree.count(_ == true) >= 1)println("Found Three") else println("None Found Three")
+    if (matchThree.count(_ == true) >= 3)println("Found Three") else println("None Found Three")
 
-    if (matchTwo.count(_ == true) >= 1)println("Found Two") else println("None Found Two")
+    if (matchTwo.count(_ == true) >= 2)println("Found Two") else println("None Found Two")
 
     if (matchOne.count(_ == true) >= 1)println("Found One") else println("None Found One")
 
